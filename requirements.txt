@@ -1,0 +1,9 @@
+Click==7.0
+Flask==1.1.1
+itsdangerous==1.1.0
+Jinja2==2.10.1
+MarkupSafe==1.1.1
+myproject==1.0
+pkg-resources==0.0.0
+-e git+https://github.com/cingaldi/search-service.git@a08e9572255d83f338ea5e23f5d16a4eb3f9e334#egg=search_service
+Werkzeug==0.15.6
