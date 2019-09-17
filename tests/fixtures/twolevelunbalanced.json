@@ -1,0 +1,16 @@
+{
+    "foo" : "bar",
+    "children" : [
+        {
+            "prop" : "value1"
+        },
+        {
+            "prop" : "value2",
+            "children" : [
+                {
+                    "prop" : "value3"
+                }                
+            ]
+        }
+    ]
+}
