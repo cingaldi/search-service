@@ -12,23 +12,26 @@ class TreeModel:
 
     def getLeaves(self):
 
-        if self.__selector == "":
-            return self.__tree
-        else:
-            return self._visit(self.__tree , [])
+        leaves = []
+        for node in self._visit(self.__tree):
+            print(node)
+            if "children" not in node:
+                leaves.append(node)
+        return leaves
 
     def _setTree(self , tree):
         self.__tree = tree
 
-    def _visit(self , node , visited):
-        print (node)
-        if self.__selector in node and isinstance(node[self.__selector] , list):
-            for i = 1 to len(node[self.__selector]:
-                visited.append(self._visit(node[self.__selector][i] , visited))
-        else:
-            visited.append(node)
+    def _visit(self , node ):
+
+        yield node
         
-        return visited
+        #recursive step
+        if "children" in node:
+            for i in node["children"]:
+
+                for child in self._visit(i):
+                    yield child
 
 class TreeModelFactory:
 

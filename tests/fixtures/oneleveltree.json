@@ -1,5 +1,5 @@
 {
-    "foo" : "bar",
+    "prop" : "bar",
     "children" : [
         {
             "prop" : "value1"
