@@ -1,7 +1,7 @@
-from flask import Flask , request , jsonify
+from flask import Flask , request
 
 from src import services
-
+from src import viewModels
 app = Flask(__name__)
 
 
@@ -11,11 +11,22 @@ def health():
 
 @app.route('/trees/<treeType>')
 def getTree(treeType):
+
     s = services.ServiceFactory().getInstance(treeType)
     if s is None:
-        return ({"error" : "tree type does not exist"} , 404)
+        return (viewModels.errorResult(error="tree_not_found" , result="tree type does not exist") , 404)
     else:
-        return (jsonify(s.getBase()) , 200)
+        filterBy = request.args.get("filterBy" , default=None)
+        result =  []
+        description = None
+        if filterBy is not None:
+            result = s.getFiltered(filterBy)
+            description = "all tree leaves filtered by value {0}".format(filterBy)
+        else:
+            result = s.getBase()
+            description="all tree leaves"
+
+        return (viewModels.result(description=description , result=result) , 200)
 
 
 
