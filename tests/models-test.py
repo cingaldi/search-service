@@ -22,23 +22,22 @@ class TreeModelTestCase(unittest.TestCase):
 
         result = tree.getLeaves()
 
-        assert result  == {"prop" : "value"}
+        assert result  == [{'prop' : "value"}]
     
     def test_gets_leaves_on_oneleveltree(self):
         tmf = models.TreeModelFactory('tests/fixtures/oneleveltree')
         tree = tmf.getInstance()
 
-        result = tree.navigateBy("children").getLeaves()
+        result = tree.getLeaves()
 
         assert result  == [{"prop" : "value1"} , {"prop" : "value2"}]
 
-    def xtest_gets_leaves_on_twolevelunbalanced(self):
+    def test_gets_leaves_on_twolevelunbalanced(self):
         tmf = models.TreeModelFactory('tests/fixtures/twolevelunbalanced')
         tree = tmf.getInstance()
 
-        result = tree.navigateBy("children").getLeaves()
-
-        assert result  == [{"prop" : "value1"} , {"prop" : "value2"} , {"prop" : "value3"}]
+        result = tree.getLeaves()
+        assert result  == [{"prop" : "value1"} , {"prop" : "value3"}]
 
 
 if __name__ == '__main__':

@@ -14,7 +14,6 @@ class TreeModel:
 
         leaves = []
         for node in self._visit(self.__tree):
-            print(node)
             if "children" not in node:
                 leaves.append(node)
         return leaves
