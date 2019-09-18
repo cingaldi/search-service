@@ -20,7 +20,7 @@ class CoreService(IService):
     def getFiltered(self , value):
         return self.__treeModel.navigateBy(self.__navigateKey).filterBy(self.__filterKey , value).getLeaves()       
 
-class CategoriesService:
+class CategoriesService(IService):
 
     def __init__ (self):
         self.__s = CoreService("data/categories" , "children" , "name")
@@ -30,7 +30,7 @@ class CategoriesService:
     def getFiltered(self , value):
         return self.__s.getFiltered(value)
 
-class PsychographicsService:
+class PsychographicsService(IService):
 
     def __init__ (self):
         self.__s = CoreService("data/psychographics" , "values" , "label")
