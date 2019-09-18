@@ -4,7 +4,7 @@ class TreeModel:
 
     def __init__(self):
         self.__tree = {}
-        self.__selector = ""
+        self.__selector = "children"
 
     def navigateBy(self , selector):
         self.__selector = selector
@@ -15,7 +15,7 @@ class TreeModel:
         leaves = []
         for root in self.__tree:
             for node in self._visit(root):
-                if "children" not in node:
+                if self.__selector not in node:
                     leaves.append(node)
         return leaves
 
@@ -27,8 +27,8 @@ class TreeModel:
         yield node
         
         #recursive step
-        if "children" in node:
-            for i in node["children"]:
+        if self.__selector in node:
+            for i in node[self.__selector]:
 
                 for child in self._visit(i):
                     yield child

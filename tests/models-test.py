@@ -47,6 +47,14 @@ class TreeModelTestCase(unittest.TestCase):
         print(result)
         assert result  == [{"prop" : "value1"} , {"prop" : "value2"}]
 
+    def test_gets_leaves_on_threeleveletc(self):
+        tmf = models.TreeModelFactory('tests/fixtures/threelevelbalancedfigli')
+        tree = tmf.getInstance()
+
+        result = tree.navigateBy("figli").getLeaves()
+        print(result)
+        assert result  == [{"prop" : "value4"} , {"prop" : "value5"} , {"prop" : "value6"}]
+
 
 if __name__ == '__main__':
     unittest.main()
