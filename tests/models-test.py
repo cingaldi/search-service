@@ -15,7 +15,7 @@ class TreeModelFactoryTestCase(unittest.TestCase):
 
 class TreeModelTestCase(unittest.TestCase):
 
-    def xtest_gets_leaf_on_single_node(self):
+    def test_gets_leaf_on_single_node(self):
 
         tmf = models.TreeModelFactory('tests/fixtures/some')
         tree = tmf.getInstance()
