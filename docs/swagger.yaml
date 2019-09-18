@@ -1,0 +1,62 @@
+swagger: '2.0'
+info:
+  version: '1.0'
+  title: Search Service
+  description: REST APIs to search in treess
+  contact:
+    name: Carmine Ingaldi
+    email: ingaldi.csb@gmail.com
+    url: 'https://github.com/cingaldi'
+host: "localhost:5000"
+basePath: /
+schemes:
+  - http
+consumes:
+  - application/json
+
+tags:
+  - name: Tree API
+paths:
+  '/trees/{treeType}':
+    post:
+      description: Searches leaves on tree
+      operationId: searchBase
+      tags:
+        - Auth
+      parameters:
+        - name: treeType
+          in: path
+          description: type of tree
+          required: true
+          type: string
+        - in: query
+          name: filterBy
+          description: looks only for leaves under the subtree where this value is found
+          type: string
+      responses:
+        '200':
+          description: Found leaves
+          schema:
+            type: object
+            properties:
+              description:
+                type: string
+                example : "found"
+              result:
+                type: array
+                items:
+                  type: object
+        '404':
+          description: Not found
+          schema:
+            type: object
+            properties:
+              description:
+                type: string
+                example: "some api error message"
+              error:
+                type: string
+                example: "some_error_label"
+              result:
+                type: string
+                example: "some human readable message"
