@@ -44,7 +44,8 @@ class TreeModelTestCase(unittest.TestCase):
         tree = tmf.getInstance()
 
         result = tree.getLeaves()
-        assert result  == [{"prop" : "value1"} , {"prop" : "value3"}]
+        print(result)
+        assert result  == [{"prop" : "value1"} , {"prop" : "value2"}]
 
 
 if __name__ == '__main__':

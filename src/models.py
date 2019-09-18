@@ -13,9 +13,10 @@ class TreeModel:
     def getLeaves(self):
 
         leaves = []
-        for node in self._visit(self.__tree[0]):
-            if "children" not in node:
-                leaves.append(node)
+        for root in self.__tree:
+            for node in self._visit(root):
+                if "children" not in node:
+                    leaves.append(node)
         return leaves
 
     def _setTree(self , tree):
