@@ -41,4 +41,14 @@ class PsychographicsService(IService):
         print(value)
         return self.__s.getFiltered(value)
 
+class ServiceFactory:
+
+    def getInstance(self , serviceType):
+
+        if serviceType == "categories":
+            return CategoriesService()
+        elif serviceType == "psychographics":
+            return PsychographicsService()
+        else:
+            return None
 
