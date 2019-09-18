@@ -39,6 +39,13 @@ class TreeModelTestCase(unittest.TestCase):
         result = tree.getLeaves()
         assert result  == [{"prop" : "value1"} , {"prop" : "value3"}]
 
+    def test_gets_leaves_on_multiroot(self):
+        tmf = models.TreeModelFactory('tests/fixtures/multiroot')
+        tree = tmf.getInstance()
+
+        result = tree.getLeaves()
+        assert result  == [{"prop" : "value1"} , {"prop" : "value3"}]
+
 
 if __name__ == '__main__':
     unittest.main()
