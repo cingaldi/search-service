@@ -5,14 +5,14 @@ class TreeModel:
     def __init__(self):
         self.__tree = {}
         self.__selector = "children"
-        self.__filter = None
+        self.__filter = utils.DefaultFilter()
 
     def navigateBy(self , selector):
         self.__selector = selector
         return self
 
     def filterBy(self , key , value):
-        self.__filter = {"key" : key , "value" : value}
+        self.__filter = utils.Filter(key , value)
         return self
 
     def getLeaves(self):
@@ -21,7 +21,7 @@ class TreeModel:
         for root in self.__tree:
             for node in self._visit(root):
                 if self.__selector not in node:
-                    if self.__filter is None or node["mark"] is True:
+                    if self.__filter.disabled() or node["mark"] is True:
                         del node["mark"]
                         leaves.append(node)
         return leaves
@@ -32,9 +32,8 @@ class TreeModel:
     def _visit(self , node , mark=False ):
 
         markSubtree = mark
-        if self.__filter is not None:
-            if self.__filter["key"] in node and node[self.__filter["key"]] == self.__filter["value"]:         
-              markSubtree = True
+        if self.__filter.match(node):         
+            markSubtree = True
         
         node["mark"] = markSubtree
         yield node

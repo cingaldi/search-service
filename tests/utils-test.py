@@ -16,6 +16,23 @@ class UtilsTestCase(unittest.TestCase):
         with pytest.raises(Exception):
             assert utils.loadJson()
 
+    def test_filter_match(self):
+
+        filter = utils.Filter("name" , "ciccio")
+
+        assert filter.match(dict({"name" : "ciccio"})) is True
+
+    def test_filter_dont_match(self):
+
+        filter = utils.Filter("name" , "ciccio")
+
+        assert filter.match(dict({"name" : "bello"})) is False
+
+    def test_filter_keynotfound(self):
+
+        filter = utils.Filter("name" , "ciccio")
+
+        assert filter.match(dict({"foo" : "ciccio"})) is False
 
 if __name__ == '__main__':
     unittest.main()
