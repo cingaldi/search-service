@@ -1,0 +1,30 @@
+[{
+    "foo" : "bar",
+    "figli" : [
+        {
+            "prop" : "value1",
+            "figli" : [
+                {
+                    "prop" : "value4"
+                },
+                {
+                    "prop" : "value5"
+                }
+            ]
+        },
+        {
+            "prop" : "value2",
+            "figli" : [
+                {
+                    "prop" : "value3",
+                    "figli" : [
+                        {
+                            "prop" : "value6"
+                        }
+
+                    ]
+                }                
+            ]
+        }
+    ]
+}]
