@@ -1,5 +1,4 @@
-{
-    "prop" : "bar",
+[{
     "children" : [
         {
             "prop" : "value1"
@@ -8,4 +7,4 @@
             "prop" : "value2"
         }
     ]
-}
+}]
