@@ -4,6 +4,9 @@
         {
           "values": [
             {
+              "label": "Advertising",
+              "ico": "flaticon-marketing",
+              "id": "Adv Strategy",
               "values": [
                 {
                   "value": "Ads web",
@@ -33,10 +36,7 @@
                   "pic": "/assets/img/psychographics/ico/psy_6.jpg",
                   "label": "Tv Ads"
                 }
-              ],
-              "label": "Advertising",
-              "ico": "flaticon-marketing",
-              "id": "Adv Strategy"
+              ]
             },
             {
               "values": [
