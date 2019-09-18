@@ -7,6 +7,5 @@ itsdangerous==1.1.0
 Jinja2==2.10.1
 MarkupSafe==1.1.1
 more-itertools==7.2.0
-search-service==1.0
 Werkzeug==0.15.6
 zipp==0.6.0
