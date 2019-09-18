@@ -1,13 +1,12 @@
-venv: env/bin/activate
-env/bin/activate: requirements.txt
-	test -d env || virtualenv env
-	env/bin/pip3 install -Ur requirements.txt
-	touch env/bin/activate
+install:
+	pip3 install -r requirements.txt
+	python3 setup.py install
 
 freeze:
 	pip freeze | grep -v "pkg-resources" > requirements.txt
 
 test:
 	pytest tests/
-start: venv
+
+start:
 	python3 ./src/app.py
